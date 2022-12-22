@@ -28,8 +28,8 @@ const { createApp } = Vue
             setReply(){
                 axios.get('https://flynn.boolean.careers/exercises/api/random/sentence')
                 .then( (result) => {
-                        this.replyMsessage = result.data.response;
-                        this.messageList.push({message : this.replyMessage, status : 'received'})
+                        this.replyMessage = result.data.response;
+                        this.listMessage.push({message : this.replyMessage, status : 'received'})
                 })
             },
         },
