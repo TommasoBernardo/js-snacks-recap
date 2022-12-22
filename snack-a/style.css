@@ -1,0 +1,15 @@
+main{
+    background-color:aquamarine;
+    height: 100vh;
+}
+
+.background-chat{
+    height: 300px;
+    background-color:darkred;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
