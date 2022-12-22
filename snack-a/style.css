@@ -1,15 +1,47 @@
 main{
-    background-color:aquamarine;
     height: 100vh;
+    background-color: lightgreen;
 }
-
-.background-chat{
-    height: 300px;
-    background-color:darkred;
+.my-chat{
+    height:500px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    background-color: bisque;
     width: 100%;
+    background-position: center;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
     align-items: center;
-    overflow-y: auto;
+}
+
+.my-text{
+    height: 70px;
+    background-color: lightgray;
+    display: flex;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius:20px ;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 2.5rem;
+}
+
+.my-input{
+    width: 80%;
+}
+
+.my-message{
+    border-radius:4px;
+    padding: 7px 9px;
+    max-width: 400px;
+}
+
+.sent{
+    background: #DAFDD4;
+    margin: 0px 24px 12px auto;
+}
+
+.received{
+    background: #ffffff;
+    margin: 0px auto 12px 24px;
 }

@@ -1,33 +1,38 @@
-const{createApp} = Vue
+/** Creare un input che permetta all'utente di inserire un messaggio e aggiungerlo ad una conversazione (tipo whatsapp).
+Dopo averlo aggiunto chiedere all'API una frase random (attraverso random/sentence) aggiungendo anch'essa al thread,
+differenziando i messaggi utente da quelli del computer. 
+https://flynn.boolean.careers/exercises/api/random/sentence (ritorna una frase)
+*/
 
-createApp({
-    data(){
-        return{
-            Input:'',
-            listMessage: [],
-            messageR: '',
-        }
-    },
-    methods: {
-        addNewMessage(){
-            if(this.Input != ''){
-                this.listMessage.push({message : this.Input, status : 'sent'})
-                this.setReply()
+const { createApp } = Vue
+
+    createApp({
+        data() {
+            return {
+                messageInput : '',
+                listMessage : [],
+                replyMessage : '',
             }
-            this.clearInput();
         },
-        clearInput(){
-            this.Input='';
+        methods : {
+            addNewMessage(){
+                if (this.messageInput != ''){
+                    this.listMessage.push({message : this.messageInput, status: 'sent' });
+                    this.setReply()            
+                }
+                this.clearmessageInput();
+            },
+            clearmessageInput(){
+                this.messageInput = '';
+            },
+            setReply(){
+                axios.get('https://flynn.boolean.careers/exercises/api/random/sentence')
+                .then( (result) => {
+                        this.replyMsessage = result.data.response;
+                        this.messageList.push({message : this.replyMessage, status : 'received'})
+                })
+            },
         },
-        setReply(){
-            axios.get('https://flynn.boolean.careers/exercises/api/random/sentence')
-            .then((result)=>{
-                this.messageR= result.data.response;
-                this.listMessage.push({message: this.messageR, status: 'received'})
-            })
+        mounted(){
         }
-    },
-    mounted(){
-
-    }
 }).mount('#app')
