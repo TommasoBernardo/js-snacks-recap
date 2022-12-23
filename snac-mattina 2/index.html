@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="col-12">
+        <input type="text" class="input-group-text" v-model.trim=""guestName>
+        <button class="btn btn-outline-primary" @click="checkIfGuestIsInvited(guestName)">verifica se è presente</button>
+    </div>
+
+    <div class="col-12">
+        <ul>
+            <li v-for="guest in guestList">
+                {{guestList}}
+            </li>
+        </ul>
+    </div>
+    <div class="col-12">
+        <h1 v-if="!isGuestInvited" class="fw-bold text-danger">
+            SCCESSO NEGATO
+        </h1>
+
+        <h1 v-else class="fw-bold text-success">
+            Benvenuto :)
+        </h1>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
